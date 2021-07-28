@@ -5,9 +5,13 @@ import { BrowserRouter as Router, Switch,
   Link } from "react-router-dom";
 import Instance from "./Instance";
 import DeleteForm from "./DeleteForm";
-import DisplayTournaments from "./DisplayTournaments";
+import DeleteTournament from "./DeleteTournament";
+import EditTournament from "./EditTournament";
+import GetTournament from "./GetTournaments";
+import CreateTournament from "./CreateTournament";
 const ChallongeLoginAction = () => {
     const [tournaments, setTournaments] = useState([]);
+    const [isLoading, setIsLoading]= useState(true);
     const [createTourn, setCreateTourn] = useState([]);
     const [delTourn, setDelTourn] = useState([]);
     const [updateTourn, setUpdateTourn] = useState([]);
@@ -15,49 +19,50 @@ const ChallongeLoginAction = () => {
         Instance.get("/tournaments.json", {data:null})
         .then((response) => {
           setTournaments(response)
+          setIsLoading(false)
         })
           .catch((error) => { console.error(error) })
-      }, [])
+      }, [tournaments])
 
-      useEffect(() => {
-        Instance.post('/tournaments.json', {
-          "data": {
-              "type": "Tournaments",
-              "attributes": {
-                  "name": "SampleTournament3",
-                  "url": "sample3_xx",
-                  "tournament_type": "single elimination",
-                  }
-              }
-          }).then((response) => {
-          setCreateTourn(response)
-        })
-          .catch((error) => { console.error(error) })
-      }, [])
+      // useEffect(() => {
+      //   Instance.post('/tournaments.json', {
+      //     "data": {
+      //         "type": "Tournaments",
+      //         "attributes": {
+      //             "name": "SampleTournament4",
+      //             "url": "sample4_xx",
+      //             "tournament_type": "single elimination",
+      //             }
+      //         }
+      //     }).then((response) => {
+      //     setCreateTourn(response)
+      //   })
+      //     .catch((error) => { console.error(error) })
+      // }, [createTourn])
 
-      useEffect(() => {
-        Instance.delete('/tournaments/TestingLangHaha', {data:null})
-        .then((response) => {
-          setDelTourn(response)
-        })
-          .catch((error) => { console.error(error) })
-      }, [])
+      // useEffect(() => {
+      //   Instance.delete('/tournaments/TestingLangHaha', {data:null})
+      //   .then((response) => {
+      //     setDelTourn(response)
+      //   })
+      //     .catch((error) => { console.error(error) })
+      // }, [])
 
-      useEffect(() => {
-        Instance.put("/tournaments/sample2_xx.json",{
-          "data": {
-              "type": "Tournaments",
-              "attributes": {
-                  "name": "SampleTournament2Edited",
-                  "url": "sample2_xx",
-                  "tournament_type": "single elimination",
-                  }
-              }})
-        .then((response) => {
-          setUpdateTourn(response)
-        })
-          .catch((error) => { console.error(error) })
-      }, [])
+      // useEffect(() => {
+      //   Instance.put("/tournaments/sample2_xx.json",{
+      //     "data": {
+      //         "type": "Tournaments",
+      //         "attributes": {
+      //             "name": "SampleTournament2Edited",
+      //             "url": "sample2_xx",
+      //             "tournament_type": "single elimination",
+      //             }
+      //         }})
+      //   .then((response) => {
+      //     setUpdateTourn(response)
+      //   })
+      //     .catch((error) => { console.error(error) })
+      // }, [])
 
       
       return (
@@ -98,23 +103,21 @@ const ChallongeLoginAction = () => {
          
             <Switch>
               <Route exact path="/get">
-                Wohoo
-              <DisplayTournaments props={tournaments}/>
+              <GetTournament props={tournaments} isLoading={isLoading}/>
               </Route>
               <Route path="/post">
-                Ahay
+               <CreateTournament/>
               <ResponseData res={createTourn}/>
               </Route>
               <Route path="/delete">
-                <DisplayTournaments props={tournaments}/>
+                <DeleteTournament props={tournaments}  isLoading={isLoading}/>
                 <DeleteForm/>
-              <ResponseData res={delTourn}/>
+                <ResponseData res={delTourn}/>
               </Route>
               
               <Route path="/edit">
-              <DisplayTournaments props={tournaments}/>
-                <DeleteForm/>
-              <ResponseData res={updateTourn}/>
+                <EditTournament props={tournaments}  isLoading={isLoading}/>
+                <ResponseData res={updateTourn}/>
               </Route>
             </Switch>
           
