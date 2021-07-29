@@ -111,17 +111,14 @@ const ChallongeLoginAction = () => {
               </Route>
               <Route path="/post">
                <CreateTournament tournaments={tournaments} isLoading={isLoading} updated={updated}/>
-              <ResponseData />
               </Route>
               <Route path="/delete">
                 <DeleteTournament tournaments={tournaments}  isLoading={isLoading} updated={updated}/>
                 <DeleteForm/>
-                <ResponseData />
               </Route>
               
               <Route path="/edit">
                 <EditTournament tournaments={tournaments}  isLoading={isLoading} updated={updated}/>
-                <ResponseData />
               </Route>
             </Switch>
           
