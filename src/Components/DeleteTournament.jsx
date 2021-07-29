@@ -9,13 +9,14 @@ const DeleteTournament = (props) => {
             setDel(response)
         })
           .catch((error) => { console.error(error) })
+          props.updated();
       }
         return (
             <div>
             {props.isLoading && <div>Loading..</div>}
     {!props.isLoading && 
         <div>
-            {props.props.data.data.map((tournament) => {
+            {props.tournaments.data.data.map((tournament) => {
                 return(
                     <p key={tournament.id}>
                         {tournament.attributes.name}<br/>

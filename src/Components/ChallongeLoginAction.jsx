@@ -15,22 +15,27 @@ const ChallongeLoginAction = () => {
     const [createTourn, setCreateTourn] = useState([]);
     const [delTourn, setDelTourn] = useState([]);
     const [updateTourn, setUpdateTourn] = useState([]);
+    const [update, setUpdate]=useState(0)
+    const updated= () =>{
+      setUpdate(update+1)
+    }
     useEffect(() => {
-        Instance.get("/tournaments.json", {data:null})
+        Instance.get("/tournaments", {data:null})
         .then((response) => {
           setTournaments(response)
           setIsLoading(false)
+          console.log(update)
         })
           .catch((error) => { console.error(error) })
-      }, [tournaments])
+      }, [update])
 
       // useEffect(() => {
-      //   Instance.post('/tournaments.json', {
+      //   Instance.post('/tournaments', {
       //     "data": {
       //         "type": "Tournaments",
       //         "attributes": {
-      //             "name": "SampleTournament4",
-      //             "url": "sample4_xx",
+      //             "name": "SampleTournamentNumber4",
+      //             "url": "sampleNumber4_xx",
       //             "tournament_type": "single elimination",
       //             }
       //         }
@@ -80,10 +85,10 @@ const ChallongeLoginAction = () => {
         <div className="container my-5">
         <div className="text-center">
           <h1 className="display-4 text-center mb-3">Challonge Access</h1>
-         <Link to="/get"><button className="btn btn-primary my-3" id="get">GET</button></Link> 
-         <Link to="/post"><button className="btn btn-info" id="post">POST</button></Link> 
-          <Link to="/edit"><button className="btn btn-warning" id="update">PUT/PATCH</button></Link>
-          <Link to="/delete"><button className="btn btn-danger" id="delete">DELETE</button></Link>
+         <Link to="/get"><button className="btn btn-primary my-3" id="get" onClick={updated}>GET</button></Link> 
+         <Link to="/post"><button className="btn btn-info" id="post" onClick={updated}>POST</button></Link> 
+          <Link to="/edit"><button className="btn btn-warning" id="update" onClick={updated}>PUT/PATCH</button></Link>
+          <Link to="/delete"><button className="btn btn-danger" id="delete" onClick={updated}>DELETE</button></Link>
           {/* <button className="btn btn-secondary" id="sim">Sim Requests</button>
           <button className="btn btn-secondary" id="headers">
             Custom Headers
@@ -103,20 +108,20 @@ const ChallongeLoginAction = () => {
          
             <Switch>
               <Route exact path="/get">
-              <GetTournament props={tournaments} isLoading={isLoading}/>
+              <GetTournament tournaments={tournaments} isLoading={isLoading} updated={updated}/>
               </Route>
               <Route path="/post">
-               <CreateTournament/>
+               <CreateTournament tournaments={tournaments} isLoading={isLoading} updated={updated}/>
               <ResponseData res={createTourn}/>
               </Route>
               <Route path="/delete">
-                <DeleteTournament props={tournaments}  isLoading={isLoading}/>
+                <DeleteTournament tournaments={tournaments}  isLoading={isLoading} updated={updated}/>
                 <DeleteForm/>
                 <ResponseData res={delTourn}/>
               </Route>
               
               <Route path="/edit">
-                <EditTournament props={tournaments}  isLoading={isLoading}/>
+                <EditTournament tournaments={tournaments}  isLoading={isLoading} updated={updated}/>
                 <ResponseData res={updateTourn}/>
               </Route>
             </Switch>

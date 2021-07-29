@@ -1,14 +1,16 @@
 import { useState } from "react";
 import Instance from "./Instance";
+import GetTournament from "./GetTournaments";
 
 const CreateTournament = (props) =>{
     const [inputName, setInputName] = useState("")
     const [inputUrl, setInputUrl]= useState("")
     const [inputMode, setInputMode] = useState("single elimination")
-    const [isPending, setIsPending] = useState(true)
+    const {isLoading, tournaments}= props;
+    console.log(tournaments)
     const postData =(e)=>{
     e.preventDefault(); 
-        Instance.post('/tournaments.json', {
+    Instance.post('/tournaments', {
             "data": {
                 "type": "Tournaments",
                 "attributes": {
@@ -19,11 +21,12 @@ const CreateTournament = (props) =>{
                 }
             }).then((response) => {
             console.log(response);
-            setIsPending(false);
           })
             .catch((error) => { console.error(error) })
+            props.updated();
     }
     return(
+        <div>
         <form>
             <label>Name</label>
             <input required value={inputName} onChange={e => setInputName(e.target.value)}></input>
@@ -38,6 +41,8 @@ const CreateTournament = (props) =>{
             </select>
             <button onClick={postData}>Submit</button>
         </form>
+        <GetTournament tournaments={tournaments} isLoading={isLoading}/>
+        </div>
     )
 }
 export default CreateTournament;

@@ -7,6 +7,7 @@ const EditTournament = (props) => {
           console.log(response)
         })
           .catch((error) => { console.error(error) })
+          props.updated();
       }
     
         return (
@@ -14,7 +15,7 @@ const EditTournament = (props) => {
             {props.isLoading && <div>Loading..</div>}
     {!props.isLoading && 
         <div>
-            {props.props.data.data.map((tournament) => {
+            {props.tournaments.data.data.map((tournament) => {
                 return(
                     <p key={tournament.id}>
                         {tournament.attributes.name}<br/>
