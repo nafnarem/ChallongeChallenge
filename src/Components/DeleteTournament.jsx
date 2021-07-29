@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState } from "react";
+import React from 'react';
 import Instance from "./Instance"
+import Popup from "reactjs-popup";
 const DeleteTournament = (props) => {
     const [del, setDel]= useState([]);
     const delTournament=(url)=>{
@@ -20,10 +22,29 @@ const DeleteTournament = (props) => {
                 return(
                     <p key={tournament.id}>
                         {tournament.attributes.name}<br/>
-                        {tournament.attributes.url}
+                        {tournament.attributes.url}<br/>
                         {tournament.attributes.tournamentType}
-                        <button onClick={()=>{delTournament(tournament.attributes.url)}}>Delete</button>
+                        
+  <Popup
+    trigger={<button className="button"> Delete</button>} position="top left"
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+          <button onClick={()=>{delTournament(tournament.attributes.url)}}>Yes</button>
+                        
+          <button
+            className="button"
+            onClick={close}
+          >
+            Cancel
+          </button>
+        </div>
+    )}
+  </Popup>
                     </p>
+                    
                 )
             })}
         </div>}

@@ -9,7 +9,7 @@ const GetTournament = (props) => {
                 return(
                     <p key={tourn.id}>
                         {tourn.attributes.name}<br/>
-                        {tourn.attributes.url}
+                        {tourn.attributes.url}<br/>
                         {tourn.attributes.tournamentType}
                         
                     </p>
