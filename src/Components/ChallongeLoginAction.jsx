@@ -12,9 +12,9 @@ import CreateTournament from "./CreateTournament";
 const ChallongeLoginAction = () => {
     const [tournaments, setTournaments] = useState([]);
     const [isLoading, setIsLoading]= useState(true);
-    const [createTourn, setCreateTourn] = useState([]);
-    const [delTourn, setDelTourn] = useState([]);
-    const [updateTourn, setUpdateTourn] = useState([]);
+    // const [createTourn, setCreateTourn] = useState([]);
+    // const [delTourn, setDelTourn] = useState([]);
+    // const [updateTourn, setUpdateTourn] = useState([]);
     const [update, setUpdate]=useState(0)
     const updated= () =>{
       setUpdate(update+1)
@@ -24,7 +24,6 @@ const ChallongeLoginAction = () => {
         .then((response) => {
           setTournaments(response)
           setIsLoading(false)
-          console.log(update)
         })
           .catch((error) => { console.error(error) })
       }, [update])
@@ -112,17 +111,17 @@ const ChallongeLoginAction = () => {
               </Route>
               <Route path="/post">
                <CreateTournament tournaments={tournaments} isLoading={isLoading} updated={updated}/>
-              <ResponseData res={createTourn}/>
+              <ResponseData />
               </Route>
               <Route path="/delete">
                 <DeleteTournament tournaments={tournaments}  isLoading={isLoading} updated={updated}/>
                 <DeleteForm/>
-                <ResponseData res={delTourn}/>
+                <ResponseData />
               </Route>
               
               <Route path="/edit">
                 <EditTournament tournaments={tournaments}  isLoading={isLoading} updated={updated}/>
-                <ResponseData res={updateTourn}/>
+                <ResponseData />
               </Route>
             </Switch>
           

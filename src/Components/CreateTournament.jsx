@@ -7,7 +7,6 @@ const CreateTournament = (props) =>{
     const [inputUrl, setInputUrl]= useState("")
     const [inputMode, setInputMode] = useState("single elimination")
     const {isLoading, tournaments}= props;
-    console.log(tournaments)
     const postData =(e)=>{
     e.preventDefault(); 
     Instance.post('/tournaments', {
