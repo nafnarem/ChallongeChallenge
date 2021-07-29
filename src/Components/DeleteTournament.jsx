@@ -21,6 +21,7 @@ const DeleteTournament = (props) => {
                     <p key={tournament.id}>
                         {tournament.attributes.name}<br/>
                         {tournament.attributes.url}
+                        {tournament.attributes.tournamentType}
                         <button onClick={()=>{delTournament(tournament.attributes.url)}}>Delete</button>
                     </p>
                 )

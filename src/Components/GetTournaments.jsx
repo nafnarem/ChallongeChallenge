@@ -1,6 +1,5 @@
 
 const GetTournament = (props) => {
-    
         return (
             <div>
                 {props.isLoading && <div>Loading..</div>}
@@ -11,6 +10,7 @@ const GetTournament = (props) => {
                     <p key={tourn.id}>
                         {tourn.attributes.name}<br/>
                         {tourn.attributes.url}
+                        {tourn.attributes.tournamentType}
                         
                     </p>
                 )

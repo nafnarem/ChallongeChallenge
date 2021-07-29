@@ -12,12 +12,13 @@ import CreateTournament from "./CreateTournament";
 const ChallongeLoginAction = () => {
     const [tournaments, setTournaments] = useState([]);
     const [isLoading, setIsLoading]= useState(true);
-    // const [createTourn, setCreateTourn] = useState([]);
+    const [createTourn, setCreateTourn] = useState([]);
     // const [delTourn, setDelTourn] = useState([]);
     // const [updateTourn, setUpdateTourn] = useState([]);
     const [update, setUpdate]=useState(0)
     const updated= () =>{
       setUpdate(update+1)
+      
     }
     useEffect(() => {
         Instance.get("/tournaments", {data:null})
