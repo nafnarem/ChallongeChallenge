@@ -1,6 +1,5 @@
 import "./GetTournaments.css";
 const GetTournament = (props) => {
-  console.log(props.tournaments.data);
   return (
     <div className="get-container">
       {props.isLoading && <div className="loading">Loading...</div>}

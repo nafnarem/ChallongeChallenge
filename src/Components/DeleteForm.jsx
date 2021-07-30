@@ -1,7 +1,7 @@
 const DeleteForm = () => {
 
     return(
-        <div>Form</div>
+        <div></div>
     )
 
 }
