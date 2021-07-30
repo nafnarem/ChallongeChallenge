@@ -1,0 +1,48 @@
+.tournament {
+  background-color: #4a4c52;
+  margin: -1px;
+  padding: 10px;
+  color: #e5e4e3;
+  border: 1px solid #31333a;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+}
+
+.tournament img {
+  margin: 0px 10px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+.title {
+  margin: 0px 10px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  height: 100%;
+  text-shadow: 1px 1px 1px #222;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tournament-type {
+  font-size: 13px;
+  line-height: 18px;
+  color: #999;
+  text-transform: capitalize;
+  text-shadow: none;
+}
+
+.tournament-code {
+  font-size: 13px;
+  line-height: 18px;
+  color: #999;
+  text-shadow: none;
+}
