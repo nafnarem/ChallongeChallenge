@@ -1,0 +1,63 @@
+.tournament-wrap {
+  background-color: #4a4c52;
+  margin: -1px;
+  padding: 10px;
+  color: #e5e4e3;
+  border: 1px solid #31333a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+}
+
+.tournament-wrap:hover {
+  cursor: pointer;
+  background-color: #383f4f;
+}
+
+.tournament-wrap:hover .delete-btn {
+  visibility: visible;
+}
+
+.tournament-details img {
+  margin: 0px 10px;
+}
+
+.tournament-details {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.delete-btn {
+  visibility: hidden;
+  margin: 0px 10px;
+}
+
+.delete-btn button {
+  cursor: pointer;
+  font-family: "Palanquin", sans-serif;
+  font-weight: 700;
+  height: 35px;
+  padding: 0px 10px;
+  line-height: 35px;
+  max-width: 80px;
+  /* width: 100%; */
+  border-radius: 2px;
+  border: none;
+  background-color: #ff7324;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn button:hover {
+  background-color: #f05700;
+}
+
+.delete-btn button img {
+  margin: 0px;
+}
