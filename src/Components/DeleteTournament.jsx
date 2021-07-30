@@ -38,7 +38,7 @@ const DeleteTournament = (props) => {
             className="button"
             onClick={close}
           >
-            Cancel
+            Cancel It
           </button>
         </div>
     )}

@@ -27,7 +27,7 @@ const EditTournament = (props) => {
         return (
             <div>
                 
-                <label>Enter the Url of the tournament you want to change</label>
+                <label>Please enter the Url of the tournament you want to change</label>
                         
                         <input required value={inputUrl} onChange={e => setInputUrl(e.target.value)}></input>
                         <label>What is the new name?Name</label>
