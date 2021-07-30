@@ -5,7 +5,7 @@ const Instance = axios.create({
     timeout: 5000,
     headers: {
       'Authorization-Type': 'v1',
-      'Authorization': 'tY47xec2i7xTF3DVa4AGzjGxIxMgo7lweoHvzVSt',
+      'Authorization': 'removedapikeys',
       'Content-Type': 'application/vnd.api+json',
       'Accept': 'application/json'
     }});

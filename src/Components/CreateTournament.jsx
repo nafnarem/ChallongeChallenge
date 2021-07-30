@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Instance from "./Instance";
-import GetTournament from "./GetTournaments";
+// import GetTournament from "./GetTournaments";
 import "./CreateTournament.css";
 
 const CreateTournament = (props) => {
   const [inputName, setInputName] = useState("");
   const [inputUrl, setInputUrl] = useState("");
   const [inputMode, setInputMode] = useState("single elimination");
-  const { isLoading, tournaments } = props;
+  // const { isLoading, tournaments } = props;
   const postData = (e) => {
     e.preventDefault();
     Instance.post("/tournaments", {
@@ -29,7 +29,7 @@ const CreateTournament = (props) => {
         alert(`${error}.`);
       });
     props.updated();
-    <GetTournament tournaments={tournaments} isLoading={isLoading} />;
+    // <GetTournament tournaments={tournaments} isLoading={isLoading} />;
   };
   return (
     <div>

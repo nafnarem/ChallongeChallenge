@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ResponseData from "./ResponseData";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Instance from "./Instance";
-import DeleteForm from "./DeleteForm";
 import DeleteTournament from "./DeleteTournament";
 import EditTournament from "./EditTournament";
 import GetTournament from "./GetTournaments";
@@ -11,7 +9,7 @@ import "./ChallongeLoginAction.css";
 const ChallongeLoginAction = () => {
   const [tournaments, setTournaments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [createTourn, setCreateTourn] = useState([]);
+  // const [createTourn, setCreateTourn] = useState([]);
   // const [delTourn, setDelTourn] = useState([]);
   // const [updateTourn, setUpdateTourn] = useState([]);
   const [update, setUpdate] = useState(0);
