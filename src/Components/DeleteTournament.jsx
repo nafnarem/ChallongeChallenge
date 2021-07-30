@@ -41,7 +41,13 @@ const DeleteTournament = (props) => {
                 <div className="delete-btn">
                   <button
                     onClick={() => {
-                      delTournament(tournament.attributes.url);
+                      if (
+                        window.confirm(
+                          `Are you sure you want to delete ${tournament.attributes.name}?`
+                        )
+                      ) {
+                        delTournament(tournament.attributes.url);
+                      }
                     }}
                   >
                     <img
