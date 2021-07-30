@@ -15,6 +15,13 @@ form {
   align-items: center;
 }
 
+.form-field-e {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+}
+
 label {
   display: inline-block;
   font-family: "Palanquin", sans-serif;
@@ -25,6 +32,10 @@ label {
   font-weight: 700;
   color: #9098ae;
   margin-right: 20px;
+}
+
+.label-2 {
+  width: 100%;
 }
 
 input,
@@ -60,7 +71,7 @@ select:focus {
   height: 35px;
   padding: 0px 10px;
   line-height: 35px;
-  max-width: 100px;
+  max-width: 150px;
   width: 100%;
   border-radius: 2px;
   border: none;
